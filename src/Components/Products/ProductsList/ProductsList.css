@@ -1,0 +1,19 @@
+#KinoList {
+  width: 95%;
+  margin: 10px auto;
+  display: flex;
+}
+
+@media all and (max-width: 540px) {
+  #KinoList {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #filter {
+    margin: 5px auto !important;
+  }
+  #listProducts {
+    margin: 5px auto !important;
+  }
+}

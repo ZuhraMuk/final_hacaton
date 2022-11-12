@@ -1,0 +1,11 @@
+.active {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  color: rgb(49, 66, 254);
+}
+
+@media all and (max-width: 800px) {
+  #NavBar {
+    display: none;
+  }
+}

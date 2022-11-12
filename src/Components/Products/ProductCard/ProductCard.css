@@ -1,0 +1,15 @@
+.cardText {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.3em;
+  height: 4.2em;
+}
+
+.card_active:hover {
+  -webkit-box-shadow: 4px 4px 34px -9px rgba(50, 216, 40, 0.41);
+  -moz-box-shadow: 4px 4px 34px -9px rgba(50, 216, 40, 0.41);
+  box-shadow: 4px 4px 34px -9px rgba(50, 216, 40, 0.41);
+  margin-bottom: 10px;
+}

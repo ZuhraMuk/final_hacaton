@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url(https://poster.nicefon.ru/2016_07/18/1080x610/1191058978feab8e27ad16.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: "fixed";
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+@media all and (max-width: 900px) {
+  body {
+    background: rgb(10, 134, 136);
+    background: linear-gradient(
+      0deg,
+      rgb(5, 125, 127) 0%,
+      rgba(0, 0, 0, 1) 62%
+    );
+  }
+}
