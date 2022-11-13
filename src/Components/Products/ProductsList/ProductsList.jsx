@@ -1,11 +1,18 @@
 import { Grid } from "@mui/material";
 import { margin } from "@mui/system";
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { productContext } from "../../../context/ProductContextProvider";
 import Filter from "../../Filter/Filter";
 import ProductCard from "../ProductCard/ProductCard";
 import "./ProductsList.css";
 
 const ProductsList = () => {
+  const { productsArr, readProduct } = useContext(productContext);
+
+  useEffect(() => {
+    readProduct();
+  }, []);
+
   return (
     <div id="KinoList">
       <div
@@ -33,15 +40,9 @@ const ProductsList = () => {
         sx={{ width: "70%" }}
         mx="auto"
         my="40px">
-        {/* {productsArr
+        {productsArr
           ? productsArr.map(item => <ProductCard obj={item} />)
-          : null} */}
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+          : null}
       </Grid>
     </div>
   );
