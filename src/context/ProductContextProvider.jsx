@@ -9,6 +9,7 @@ const API = "http://localhost:8000/products";
 const INIT_STATE = {
   products: null,
   productDetails: null,
+  pageTotalCount: 1,
 };
 
 function reducer(prevState, action) {
@@ -17,7 +18,7 @@ function reducer(prevState, action) {
       return {
         ...prevState,
         product: action.payload.data,
-        // pageTotalCount: Math.ceil(action.payload.headers["x-total-count"] / 9),
+        pageTotalCount: Math.ceil(action.payload.headers["x-total-count"] / 3),
       };
     case "GET_ONE_PRODUCT":
       return {
@@ -46,7 +47,7 @@ const ProductContextProvider = ({ children }) => {
 
   async function readProduct() {
     try {
-      const res = await axios(API);
+      const res = await axios(`${API}${location.search}`);
       dispatch({
         type: "GET_PRODUCT",
         payload: res,
@@ -68,12 +69,35 @@ const ProductContextProvider = ({ children }) => {
     }
   }
 
+  async function deleteProduct(id) {
+    try {
+      await axios.delete(`${API}/${id}`);
+      readProduct();
+      navigate("/");
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async function editProduct(id, editedObj) {
+    try {
+      await axios.patch(`${API}/${id}`, editedObj);
+      readProduct();
+      navigate(`/details/${id}`);
+    } catch (error) {
+      return error;
+    }
+  }
+
   const cloud = {
     addProduct,
     readProduct,
     readOneProduct,
+    deleteProduct,
+    editProduct,
     productsArr: state.product,
     productDetails: state.productDetails,
+    pageTotalCount: state.pageTotalCount,
   };
   return (
     <productContext.Provider value={cloud}>{children}</productContext.Provider>

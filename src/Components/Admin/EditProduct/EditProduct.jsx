@@ -8,19 +8,19 @@ import {
   TextField,
 } from "@mui/material";
 import "./EditProduct.css";
-import { useNavigate, useParams } from "react-router-dom";
-// import { productContext } from "../../../context/ProductContextProvider";
+import { useParams } from "react-router-dom";
+import { productContext } from "../../../context/ProductContextProvider";
 
 const EditProduct = () => {
-  // const { productDetails, readOneProduct, editProduct } =
-  //   useContext(productContext);
-  const [inpValues, setInpValues] = useState("");
+  const { productDetails, readOneProduct, editProduct } =
+    useContext(productContext);
+  const [inpValues, setInpValues] = useState(productDetails);
 
   const { id } = useParams();
 
-  // useEffect(() => {
-  //   readOneProduct(id);
-  // }, [id]);
+  useEffect(() => {
+    readOneProduct(id);
+  }, [id]);
 
   function handleChange(e) {
     let obj = {};
@@ -38,8 +38,6 @@ const EditProduct = () => {
     setInpValues(obj);
   }
 
-  // const navigate = useNavigate();
-
   function handleSave(e) {
     e.preventDefault();
     if (
@@ -55,8 +53,7 @@ const EditProduct = () => {
       alert("Заполните все поля!");
       return;
     }
-    // editProduct(id, inpValues);
-    // navigate("/list");
+    editProduct(id, inpValues);
   }
 
   return (

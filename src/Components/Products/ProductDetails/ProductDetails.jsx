@@ -7,16 +7,19 @@ import ChatIcon from "@mui/icons-material/Chat";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { display } from "@mui/system";
 import { productContext } from "../../../context/ProductContextProvider";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
-  const { readOneProduct, productDetails } = useContext(productContext);
+  const { readOneProduct, productDetails, deleteProduct } =
+    useContext(productContext);
 
   const { id } = useParams();
 
   useEffect(() => {
     readOneProduct(id);
   }, [id]);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -39,7 +42,7 @@ const ProductDetails = () => {
           <div id="video">
             <ReactPlayer
               width="100%"
-              height="90%"
+              height="89.7%"
               url={productDetails.video}
               controls={true}></ReactPlayer>
             <div
@@ -67,6 +70,7 @@ const ProductDetails = () => {
               alignItems: "center",
             }}>
             <button
+              onClick={() => deleteProduct(productDetails.id)}
               style={{
                 width: "40%",
                 border: "none",
@@ -78,6 +82,7 @@ const ProductDetails = () => {
               Удалить
             </button>
             <button
+              onClick={() => navigate(`/edit/${productDetails.id}`)}
               style={{
                 width: "40%",
                 border: "none",

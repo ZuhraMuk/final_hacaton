@@ -2,25 +2,14 @@
   "products": [
     {
       "category": "cartoon",
-      "title": "Как приручить дракона",
-      "genre": "фантастика",
-      "year": 2015,
-      "rating": "14",
-      "description": "мавыырвиивоыииоыфио",
-      "img1": "https://i.pinimg.com/564x/77/f0/a1/77f0a1508bb5669d898f4249f231b629.jpg",
-      "video": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAH0AfQMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAABgUHAQMEAgj/xAA5EAACAQMCBAQEAwYGAwAAAAABAgMABBEFIQYSMUETUWGBInGRoQcUMhUjQmKxwUNSktHh8CRygv/EABoBAAIDAQEAAAAAAAAAAAAAAAADAgQFAQb/xAArEQACAQMDAgQGAwAAAAAAAAAAAQIDBBESITEFQRMUUXEVIjJhgbFC0fD/2gAMAwEAAhEDEQA/ALxooooAKwTWaiuINUbSrVZUt2mZzyrvgA471xtJZZKMXJqK5I3ivjCx4dZYZY5Li6dOdYYyBgHIBYnoMg+fypasPxXhlvES903wLcnBljm52X15eUbff0pQ44lvLrW/zs7xul3EpjI6KBsUHyO//wBUtfu+bIypB7D+9VJ15Z24PXWXRrSdspTWW++f0fQdrxRp11PbRQ+KVuMeHIVAXfoDvnPbp1qc7VRPD+oeNALaBsyxDxFAJBGTlhjO+MA5FWZpvGNp+UiGqc0M+MFlXmRz5gj+lNhWz9R568snQqOMdxkvLmO0tZbiXPJEhdselLOo8d6VYWYnmjuBIwYxxcoy+NvPbfv6Go/ifiZb+3S005JCkhHMxHLz+QGfXB9qrPiO+S6vGXAwgCI6nOFAzy+vxFjn1qM6zT+UsdN6cripipwO9t+LLNMFuNHXkzv4Vxlh7FQPuKsLRNWtNa0+O9sWYxOSMMMMpHUEV84Rhf8ADA5h/mGKsbgHVLzRNJV5OSWG6laVYTsVUDBYH1x/TzqNO",
+      "title": "Астерикс: Земля Богов",
+      "genre": "фантастика,  мифология, комедия",
+      "year": 2014,
+      "rating": "13",
+      "description": "Юлий Цезарь  хочет избавиться от упрямых Галлов раз и навсегда. Поскольку его армия не была в состоянии сокрушить их оборону, он решает дейстовать хитростью.  Он строит новый Рим - Землю Богов - вокруг деревни Астерикса, оказывая давление на Галлов, чтобы заставить галлов ассимилироваться или исчезнуть. Несмотря на планы Астерикса и Обеликса остановить строительные работы, здания быстро возвышаются.  Может ли это наконец означать победу для Цезаря?",
+      "img1": "https://htv-vsc.kion.ru:32121/CPS/images/universal/film/poster/202210/20221004/13/20221004105042425l9l.jpeg?x=168&y=234&ar=keep",
+      "video": "https://youtu.be/DSAtgK1ZYLg",
       "id": 1
-    },
-    {
-      "category": "cartoon",
-      "title": "ddd",
-      "genre": "ddd",
-      "year": 999,
-      "rating": "12",
-      "description": "cc",
-      "img1": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAIEAZwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAFAAIDBAYBB//EAEIQAAIBAwMBAwoCBggHAQAAAAECAwAEEQUSITEGE0EUIjJRYXGBkaGxFcEHI0NSctEkMzRCYoKi8TVTY4OS0vAl/8QAGgEAAgMBAQAAAAAAAAAAAAAAAQQCAwUABv/EACkRAAICAQMDAwMFAAAAAAAAAAABAhEDEiExBBNBBSJRIzJhFDNxgbH/2gAMAwEAAhEDEQA/ADG7KAj1U0HjrTI2JQDjaBXWI8f9qyD2SKOugNpVwBxgA8cZ5FCrH/hj9RtKn6H/ANaL6p52nXOR+zPNYzUdTvNO05Wsu7yzDfvXd03Yx86YwcmT6otkzSaxYTXYtpEYLEtum+SaQBQcDqfyFDn1rRtMTuxPJqMnGUgGE+LePwrKo99rB331zNKQeFY8D3DoK0GndnYWjDMTn1HgU1uYyGv2i7Q6t/RNIga3iznurSMs3vJxx7+KG22iXV7Nuu5WBPJeYlif51pdE7az6FLPp/Z3TI75ncFwEZicDBxt6e+rfZ2+W5uJre+sXtrqKNWMUinlT0YZHsIo0gO6sF23ZuyWSLcZJVOd+ePlRHQNPsorO4hdf6QszAEL4ZPsrQ5iE0TCEBV6hR1qjYyLFdXsZU/1xNdptg1bFuwW0giRZbfc655xyeamikjS7eVYSVZQNuPd/KuwXMscQWOMnknIGfGmJNIt2zpH52OUPHHFSUaIuTZR1dw9ysgj2eaBjGK7TNZkeadC6BXOeBSqV",
-      "video": "C:\\fakepath\\msg5529433249-5268.jpg",
-      "id": 2
     },
     {
       "category": "cartoon",
@@ -32,6 +21,39 @@
       "img1": "https://kinokit.net/uploads/posts/2015-10/1444862199_hranitel-luny.jpg",
       "video": "https://youtu.be/W2msxw_MuRI",
       "id": 3
+    },
+    {
+      "category": "cartoon",
+      "title": "Мультфильм: Нэчжа",
+      "genre": "фантастика",
+      "year": 2019,
+      "rating": "13",
+      "description": "Небо и земля породили Жемчужину Хаоса, обладающую огромной силой, и образовавшийся демон сразу начал бушевать. Небесный владыка усмирил существо, разделил жемчужину на две - Жемчужину Духа и Жемчужину Демона - и заточил обе в цветок лотоса. А также наказал бессмертному Тайи проследить, чтобы Жемчужина Духа переродилась в третьего сына правителя Ли Цзына, которого следует назвать Нэчжа, а на Жемчужину Демона наложил судьбу - через три года она будет разрушена ударом молнии. Но другой бессмертный по имени Ян Вэй перед самым рождением наследника крадет Жемчужину Духа, и демон вселяется в младенца. Только появившись на свет, Нэчжа начинает кидаться в население файерболами, сея хаос, ужас и разрушения, поэтому Тайи надевает на него золотой усмиряющий ошейник. Правитель Ли Цзин просит оставить малыша в живых и клянётся, что не позволит ему покидать дворец, ведь всё равно через три года Нэчжу настигнет смертельное проклятие.",
+      "img1": "https://анимевост.рф/pic/2458_logo.jpg",
+      "video": "https://youtu.be/_9Y13VNYUPI",
+      "id": 4
+    },
+    {
+      "category": "cartoon",
+      "title": "Индюки: Назад в будущее 3D",
+      "genre": "анимация комедия",
+      "year": 2013,
+      "rating": "10",
+      "description": "Индюки Регг и Брок находят машину времени и отправляются на триста лет назад во времена самого первого «Дня благодарения» дабы раз и навсегда вычеркнуть индейку из праздничного меню.",
+      "img1": "https://s3.vcdn.biz/static/f/496547751/image.jpg",
+      "video": "https://youtu.be/mAZNZxulJDE",
+      "id": 5
+    },
+    {
+      "category": "movie",
+      "title": "Фильм Джеки Чан ",
+      "genre": "экшн",
+      "year": 2018,
+      "rating": "16",
+      "description": "На сегодняшний день, это самый большой дисплей Always-On Retina.  большой дисплей Always-On Retina   Дисплей устойчив к царапинам, а также пыле-влагозащищенный",
+      "img1": "https://kinotochka.co/uploads/posts/2016-08/1472291861_a0e7d8b06e.jpg",
+      "video": "https://youtu.be/OYx76JDYriM",
+      "id": 6
     }
   ]
 }

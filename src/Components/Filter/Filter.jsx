@@ -9,7 +9,14 @@ import {
 } from "@mui/material";
 import React from "react";
 
-const Filter = () => {
+const Filter = ({
+  category,
+  setCategory,
+  from,
+  setFrom,
+  before,
+  setBefore,
+}) => {
   return (
     <FormControl sx={{ width: "250px", marginLeft: "5px" }}>
       <FormLabel
@@ -21,10 +28,8 @@ const Filter = () => {
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue="all"
         name="radio-buttons-group"
-        // value={category}
-        value="category"
-        // onChange={e => setCategory(e.target.value)}
-      >
+        value={category}
+        onChange={e => setCategory(e.target.value)}>
         <FormControlLabel
           value="cartoon"
           control={<Radio />}
@@ -48,6 +53,8 @@ const Filter = () => {
       /> */}
       <span>
         <TextField
+          value={from}
+          onChange={e => setFrom(e.target.value)}
           sx={{ width: "87px", height: "20px", margin: 2 }}
           id="outlined-number"
           label="От"
@@ -58,6 +65,8 @@ const Filter = () => {
           // onChange={e => setPrice(e.target.value)}
         />
         <TextField
+          value={before}
+          onChange={e => setBefore(e.target.value)}
           sx={{ width: "87px", height: "20px", margin: 2 }}
           id="outlined-number"
           label="ДО"
