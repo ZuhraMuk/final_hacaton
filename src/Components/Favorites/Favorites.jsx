@@ -1,12 +1,13 @@
-import { Grid } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 import React, { useContext, useEffect } from "react";
 import { favoritesContext } from "../../context/FavoritesContextProvider";
 import ProductCard from "../Products/ProductCard/ProductCard";
+import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 
 const Favorites = () => {
   const { getFavorites, productsInFavorites } = useContext(favoritesContext);
 
-  console.log(productsInFavorites);
+  // console.log(productsInFavorites);
 
   useEffect(() => {
     getFavorites();
@@ -19,10 +20,10 @@ const Favorites = () => {
         direction="row"
         justifyContent="space-around"
         alignItems="flex-start"
-        sx={{ width: "70%" }}
+        sx={{ width: "70%", minHeight: "240px" }}
         mx="auto"
         my="40px">
-        {productsInFavorites
+        {productsInFavorites.products
           ? productsInFavorites.products.map(elem => (
               <ProductCard obj={elem.item} />
             ))

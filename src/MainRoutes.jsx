@@ -1,19 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import AddProduct from "./Components/Admin/AddProduct/AddProduct";
 import EditProduct from "./Components/Admin/EditProduct/EditProduct";
 import Favorites from "./Components/Favorites/Favorites";
 import ProductDetails from "./Components/Products/ProductDetails/ProductDetails";
 import ProductsList from "./Components/Products/ProductsList/ProductsList";
+import Authorization from "./Components/Auth/Authorization";
+import { authContext } from "./context/AuthContextProvider";
+import NotFoundPage from "./Components/NotFoundPage/NotFoundPage";
 
 const MainRoutes = () => {
+  const { user } = useContext(authContext);
   return (
     <Routes>
       <Route path="/" element={<ProductsList />} />
-      <Route path="/add" element={<AddProduct />} />
+      <Route path="/auth" element={<Authorization />} />
+      <Route
+        path="/add"
+        element={
+          user.email === "zuhra@mail.ru" ? <AddProduct /> : <NotFoundPage />
+        }
+      />
       <Route path="/details/:id" element={<ProductDetails />} />
-      <Route path="/edit/:id" element={<EditProduct />} />
+      <Route
+        path="/edit/:id"
+        element={
+          user.email === "zuhra@mail.ru" ? <EditProduct /> : <NotFoundPage />
+        }
+      />
       <Route path="/fav" element={<Favorites />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

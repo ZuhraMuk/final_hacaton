@@ -7,6 +7,7 @@ import { favoritesContext } from "../../../context/FavoritesContextProvider";
 
 const ProductCard = ({ obj }) => {
   const location = useLocation();
+
   const { deleteFavoritesProduct } = useContext(favoritesContext);
   return (
     <Link to={`/details/${obj.id}`}>

@@ -1,20 +1,37 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./ProductDetails.css";
 import ReactPlayer from "react-player/lazy";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { IconButton } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { display } from "@mui/system";
 import { productContext } from "../../../context/ProductContextProvider";
 import { useNavigate, useParams } from "react-router-dom";
 import { favoritesContext } from "../../../context/FavoritesContextProvider";
+import { authContext } from "../../../context/AuthContextProvider";
 
 const ProductDetails = () => {
   const { readOneProduct, productDetails, deleteProduct } =
     useContext(productContext);
 
+  const { user } = useContext(authContext);
+
   const { addProductToFavorites } = useContext(favoritesContext);
+
+  const [basket, setBasket] = useState(false);
+
+  useEffect(() => {
+    let favorites = JSON.parse(localStorage.getItem("favorites"));
+    if (favorites !== null) {
+      if (productDetails !== null) {
+        favorites.products.forEach(elem => {
+          if (elem.item.id === productDetails.id) {
+            setBasket(true);
+          }
+        });
+      }
+    }
+  }, []);
 
   const { id } = useParams();
 
@@ -50,20 +67,10 @@ const ProductDetails = () => {
               controls={true}></ReactPlayer> */}
             {/* {productDetails.video} */}
             <div
-              // width="800px"
-              // height="400px"
               id="pleer"
               dangerouslySetInnerHTML={{
                 __html: `${productDetails.video}`,
               }}></div>
-            {/* <iframe
-              width="100%"
-              height="89.7%"
-              src={productDetails.video}
-              title={productDetails.title}
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe> */}
 
             <div
               style={{
@@ -73,49 +80,66 @@ const ProductDetails = () => {
                 justifyContent: "space-around",
                 alignItems: "center",
               }}>
-              <IconButton
-                style={{ color: "rgb(182 180 231)" }}
-                onClick={() => addProductToFavorites(productDetails)}>
-                <FavoriteIcon />
-              </IconButton>
+              {basket ? (
+                <IconButton
+                  style={{ color: "rgb(182 180 231)" }}
+                  onClick={() => {
+                    addProductToFavorites(productDetails);
+                    setBasket(!basket);
+                  }}>
+                  <BookmarkIcon style={{ color: "green" }} />
+                </IconButton>
+              ) : (
+                <IconButton
+                  style={{ color: "rgb(182 180 231)" }}
+                  onClick={() => {
+                    addProductToFavorites(productDetails);
+                    setBasket(!basket);
+                  }}>
+                  <BookmarkIcon style={{ color: "inherit" }} />
+                </IconButton>
+              )}
+
               <IconButton style={{ color: "rgb(182 180 231)" }}>
                 <ChatIcon />
               </IconButton>
             </div>
           </div>
-          <div
-            style={{
-              width: "90%",
-              height: "50px",
-              display: "flex",
-              justifyContent: "space-around",
-              alignItems: "center",
-            }}>
-            <button
-              onClick={() => deleteProduct(productDetails.id)}
+          {user.email === "zuhra@mail.ru" ? (
+            <div
               style={{
-                width: "40%",
-                border: "none",
-                borderRadius: "5px",
-                height: "30px",
-                backgroundColor: "#e60909e1",
-                cursor: "pointer",
+                width: "90%",
+                height: "50px",
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
               }}>
-              Удалить
-            </button>
-            <button
-              onClick={() => navigate(`/edit/${productDetails.id}`)}
-              style={{
-                width: "40%",
-                border: "none",
-                borderRadius: "5px",
-                height: "30px",
-                backgroundColor: "#05a805",
-                cursor: "pointer",
-              }}>
-              Редактировать
-            </button>
-          </div>
+              <button
+                onClick={() => deleteProduct(productDetails.id)}
+                style={{
+                  width: "40%",
+                  border: "none",
+                  borderRadius: "5px",
+                  height: "30px",
+                  backgroundColor: "#e60909e1",
+                  cursor: "pointer",
+                }}>
+                Удалить
+              </button>
+              <button
+                onClick={() => navigate(`/edit/${productDetails.id}`)}
+                style={{
+                  width: "40%",
+                  border: "none",
+                  borderRadius: "5px",
+                  height: "30px",
+                  backgroundColor: "#05a805",
+                  cursor: "pointer",
+                }}>
+                Редактировать
+              </button>
+            </div>
+          ) : null}
           <div id="commit">
             <div style={{ marginBottom: "10px" }}>
               <label style={{ fontSize: "20px" }}>

@@ -90,6 +90,7 @@ const FavoritesContextProvider = ({ children }) => {
     getFavorites,
     deleteFavoritesProduct,
     productsInFavorites: state.favorites,
+    favoritesCount: state.favoritesCount,
   };
   return (
     <favoritesContext.Provider value={cloud}>

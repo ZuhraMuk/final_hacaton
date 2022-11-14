@@ -11,11 +11,20 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import LiveSearch from "../LiveSearch/LiveSearch";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { favoritesContext } from "../../context/FavoritesContextProvider";
+import { Link, useLocation } from "react-router-dom";
+import { authContext } from "../../context/AuthContextProvider";
 
 function NavBar() {
+  const location = useLocation();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+  const { favoritesCount } = React.useContext(favoritesContext);
+
+  const { user, handleLogout } = React.useContext(authContext);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -53,8 +62,10 @@ function NavBar() {
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}>
-      <MenuItem onClick={handleMenuClose}>LogIn</MenuItem>
-      <MenuItem onClick={handleMenuClose}>LogOut</MenuItem>
+      <Link to="/auth" style={{ color: "black" }}>
+        <MenuItem>LogIn</MenuItem>
+      </Link>
+      <MenuItem onClick={handleLogout}>LogOut</MenuItem>
     </Menu>
   );
 
@@ -74,14 +85,19 @@ function NavBar() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}>
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <FavoriteBorderIcon />
-          </Badge>
-        </IconButton>
-        <p>Favorites</p>
-      </MenuItem>
+      <Link to="/fav" style={{ color: "black" }}>
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit">
+            <Badge badgeContent={favoritesCount} color="error">
+              <BookmarkIcon />
+            </Badge>
+          </IconButton>
+          <p>Избранные</p>
+        </MenuItem>
+      </Link>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -91,7 +107,7 @@ function NavBar() {
           color="inherit">
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <p>Акаунт</p>
       </MenuItem>
     </Menu>
   );
@@ -135,28 +151,27 @@ function NavBar() {
             MenuListProps={{
               "aria-labelledby": "basic-button",
             }}>
-            {/* {user.email === "zuhra@mail.ru" ? ( */}
-            {/* <Link to="/add"> */}
-            <MenuItem onClick={handleClose} style={{ color: "black" }}>
-              Add Products
-            </MenuItem>
-            {/* </Link> */}
-            {/* ) : null} */}
-            {/* {location.pathname === "/list" ? (
+            {user.email === "zuhra@mail.ru" ? (
+              <Link to="/add">
+                <MenuItem onClick={handleClose} style={{ color: "black" }}>
+                  Добавить продукт
+                </MenuItem>
+              </Link>
+            ) : null}
+            {location.pathname === "/" ? (
               <MenuItem onClick={handleClose} style={{ color: "black" }}>
-                <span style={{ cursor: "pointer" }}>Products List</span>
+                <span style={{ cursor: "pointer" }}>Главная</span>
               </MenuItem>
-            ) : ( */}
-            {/* <Link to="/list"> */}
-            <MenuItem onClick={handleClose} style={{ color: "black" }}>
-              Products List
-            </MenuItem>
-            {/* </Link> */}
-            {/* )} */}
+            ) : (
+              <Link to="/">
+                <MenuItem onClick={handleClose} style={{ color: "black" }}>
+                  Главная
+                </MenuItem>
+              </Link>
+            )}
             <MenuItem onClick={handleClose} style={{ color: "black" }}>
               <Typography>
-                {/* {user.email ? user.email : <span>Users</span>} */}
-                My acaunt
+                {user.email ? user.email : <span>Мой акаунт</span>}
               </Typography>
             </MenuItem>
           </Menu>
@@ -165,23 +180,28 @@ function NavBar() {
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}>
-            <img
-              src="https://g.vseigru.net/dasha1/igry-kak-priruchit-drakona/igra-kak-priruchit-drakona-vysizhivat-yajtsa/asset/common/images/loader/shield-loader.png"
-              alt="logo"
-              style={{ width: 47, height: 47, borderRadius: "50%" }}
-            />
+            <Link to="/">
+              <img
+                src="https://g.vseigru.net/dasha1/igry-kak-priruchit-drakona/igra-kak-priruchit-drakona-vysizhivat-yajtsa/asset/common/images/loader/shield-loader.png"
+                alt="logo"
+                style={{ width: 47, height: 47, borderRadius: "50%" }}
+              />
+            </Link>
           </Typography>
-          <LiveSearch />
+          {location.pathname === "/" ? <LiveSearch /> : null}
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit">
-              <Badge badgeContent={4} color="error">
-                <FavoriteBorderIcon />
-              </Badge>
-            </IconButton>
+            <Link to="/fav">
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit">
+                <Badge badgeContent={favoritesCount} color="error">
+                  <BookmarkIcon />
+                </Badge>
+              </IconButton>
+            </Link>
             <IconButton
               size="large"
               edge="end"

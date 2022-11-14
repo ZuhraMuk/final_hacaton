@@ -5,22 +5,25 @@ import Footer from "./Components/Footer/Footer";
 import NavBar from "./Components/NavBar/NavBar";
 import ProductDetails from "./Components/Products/ProductDetails/ProductDetails";
 import ProductsList from "./Components/Products/ProductsList/ProductsList";
+import AuthContextProvider from "./context/AuthContextProvider";
 import FavoritesContextProvider from "./context/FavoritesContextProvider";
 import ProductContextProvider from "./context/ProductContextProvider";
 import MainRoutes from "./MainRoutes";
 
 const App = () => {
   return (
-    <FavoritesContextProvider>
-      <ProductContextProvider>
-        <NavBar />
-        <MainRoutes />
-        {/* <ProductDetails /> */}
-        {/* <AddProduct />
+    <AuthContextProvider>
+      <FavoritesContextProvider>
+        <ProductContextProvider>
+          <NavBar />
+          <MainRoutes />
+          {/* <ProductDetails /> */}
+          {/* <AddProduct />
       <EditProduct /> */}
-        <Footer />
-      </ProductContextProvider>
-    </FavoritesContextProvider>
+          <Footer />
+        </ProductContextProvider>
+      </FavoritesContextProvider>
+    </AuthContextProvider>
   );
 };
 
