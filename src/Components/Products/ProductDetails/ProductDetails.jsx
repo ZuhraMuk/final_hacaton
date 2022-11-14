@@ -8,10 +8,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { display } from "@mui/system";
 import { productContext } from "../../../context/ProductContextProvider";
 import { useNavigate, useParams } from "react-router-dom";
+import { favoritesContext } from "../../../context/FavoritesContextProvider";
 
 const ProductDetails = () => {
   const { readOneProduct, productDetails, deleteProduct } =
     useContext(productContext);
+
+  const { addProductToFavorites } = useContext(favoritesContext);
 
   const { id } = useParams();
 
@@ -40,11 +43,28 @@ const ProductDetails = () => {
           </div>
           <div id="description">{productDetails.description}</div>
           <div id="video">
-            <ReactPlayer
+            {/* <ReactPlayer
               width="100%"
               height="89.7%"
               url={productDetails.video}
-              controls={true}></ReactPlayer>
+              controls={true}></ReactPlayer> */}
+            {/* {productDetails.video} */}
+            <div
+              // width="800px"
+              // height="400px"
+              id="pleer"
+              dangerouslySetInnerHTML={{
+                __html: `${productDetails.video}`,
+              }}></div>
+            {/* <iframe
+              width="100%"
+              height="89.7%"
+              src={productDetails.video}
+              title={productDetails.title}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe> */}
+
             <div
               style={{
                 width: "20%",
@@ -53,7 +73,9 @@ const ProductDetails = () => {
                 justifyContent: "space-around",
                 alignItems: "center",
               }}>
-              <IconButton style={{ color: "rgb(182 180 231)" }}>
+              <IconButton
+                style={{ color: "rgb(182 180 231)" }}
+                onClick={() => addProductToFavorites(productDetails)}>
                 <FavoriteIcon />
               </IconButton>
               <IconButton style={{ color: "rgb(182 180 231)" }}>

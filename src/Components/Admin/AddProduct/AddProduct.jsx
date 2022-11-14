@@ -126,6 +126,7 @@ const AddProduct = () => {
           variant="outlined"
           value={video}
           onChange={e => setVideo(e.target.value)}
+          type="text"
         />
         <Button variant="contained" type="submit">
           Добавить

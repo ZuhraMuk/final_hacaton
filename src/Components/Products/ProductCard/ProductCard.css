@@ -1,10 +1,10 @@
 .cardText {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  line-height: 1.3em;
-  height: 4.2em;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  line-height: 1.5em !important;
+  height: 4.2em !important;
 }
 
 .card_active:hover {
@@ -12,4 +12,7 @@
   -moz-box-shadow: 4px 4px 34px -9px rgba(50, 216, 40, 0.41);
   box-shadow: 4px 4px 34px -9px rgba(50, 216, 40, 0.41);
   margin-bottom: 10px;
+}
+#deleteFav:hover {
+  color: red;
 }

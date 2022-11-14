@@ -1,8 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./ProductCard.css";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { IconButton } from "@mui/material";
+import { favoritesContext } from "../../../context/FavoritesContextProvider";
 
 const ProductCard = ({ obj }) => {
+  const location = useLocation();
+  const { deleteFavoritesProduct } = useContext(favoritesContext);
   return (
     <Link to={`/details/${obj.id}`}>
       <div
@@ -37,6 +42,13 @@ const ProductCard = ({ obj }) => {
           }}
           className="cardText">
           {obj.title}
+          {location.pathname === "/fav" ? (
+            <IconButton
+              id="deleteFav"
+              onClick={() => deleteFavoritesProduct(obj.id)}>
+              <DeleteForeverIcon />
+            </IconButton>
+          ) : null}
         </div>
       </div>
     </Link>
