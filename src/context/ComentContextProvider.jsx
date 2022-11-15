@@ -45,8 +45,22 @@ const ComentContextProvider = ({ children }) => {
     }
   }
 
+  async function deleteComent(id) {
+    try {
+      await axios.delete(`${API}/${id}`);
+      readComent();
+    } catch (error) {
+      return error;
+    }
+  }
+
   // console.log(state.coment);
-  const cloud = { addComent, readComent, comentArr: state.coment };
+  const cloud = {
+    addComent,
+    readComent,
+    deleteComent,
+    comentArr: state.coment,
+  };
   return (
     <comentContext.Provider value={cloud}>{children}</comentContext.Provider>
   );

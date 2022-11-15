@@ -20,7 +20,8 @@ const ProductDetails = () => {
 
   const { addProductToFavorites } = useContext(favoritesContext);
 
-  const { addComent, readComent, comentArr } = useContext(comentContext);
+  const { addComent, readComent, comentArr, deleteComent } =
+    useContext(comentContext);
   const [coment, setComent] = useState("");
 
   function handleAdd(e) {
@@ -217,7 +218,7 @@ const ProductDetails = () => {
                           <span>{item.user}</span>
                           <span>
                             {item.coment}
-                            <IconButton>
+                            <IconButton onClick={() => deleteComent(item.id)}>
                               <DeleteIcon />
                             </IconButton>
                           </span>
