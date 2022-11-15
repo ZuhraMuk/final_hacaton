@@ -6,24 +6,24 @@ import NavBar from "./Components/NavBar/NavBar";
 import ProductDetails from "./Components/Products/ProductDetails/ProductDetails";
 import ProductsList from "./Components/Products/ProductsList/ProductsList";
 import AuthContextProvider from "./context/AuthContextProvider";
+import ComentContextProvider from "./context/ComentContextProvider";
 import FavoritesContextProvider from "./context/FavoritesContextProvider";
 import ProductContextProvider from "./context/ProductContextProvider";
 import MainRoutes from "./MainRoutes";
 
 const App = () => {
   return (
-    <AuthContextProvider>
-      <FavoritesContextProvider>
-        <ProductContextProvider>
-          <NavBar />
-          <MainRoutes />
-          {/* <ProductDetails /> */}
-          {/* <AddProduct />
-      <EditProduct /> */}
-          <Footer />
-        </ProductContextProvider>
-      </FavoritesContextProvider>
-    </AuthContextProvider>
+    <ComentContextProvider>
+      <AuthContextProvider>
+        <FavoritesContextProvider>
+          <ProductContextProvider>
+            <NavBar />
+            <MainRoutes />
+            <Footer />
+          </ProductContextProvider>
+        </FavoritesContextProvider>
+      </AuthContextProvider>
+    </ComentContextProvider>
   );
 };
 

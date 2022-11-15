@@ -2,13 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import "./ProductDetails.css";
 import ReactPlayer from "react-player/lazy";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { productContext } from "../../../context/ProductContextProvider";
 import { useNavigate, useParams } from "react-router-dom";
 import { favoritesContext } from "../../../context/FavoritesContextProvider";
 import { authContext } from "../../../context/AuthContextProvider";
+import { comentContext } from "../../../context/ComentContextProvider";
+import SendIcon from "@mui/icons-material/Send";
 
 const ProductDetails = () => {
   const { readOneProduct, productDetails, deleteProduct } =
@@ -17,6 +19,33 @@ const ProductDetails = () => {
   const { user } = useContext(authContext);
 
   const { addProductToFavorites } = useContext(favoritesContext);
+
+  const { addComent, readComent, comentArr } = useContext(comentContext);
+  const [coment, setComent] = useState("");
+
+  function handleAdd(e) {
+    e.preventDefault();
+    if (!user.email) {
+      alert("Чтобы оставить коментарий войдите через акаунт!");
+      return;
+    }
+    if (!coment.trim()) {
+      alert("Заполните поле!");
+      return;
+    }
+
+    let obj = {
+      coment,
+      key: id,
+      user: user.email,
+    };
+    addComent(obj);
+    setComent("");
+  }
+
+  useEffect(() => {
+    readComent();
+  }, []);
 
   const [basket, setBasket] = useState(false);
 
@@ -142,50 +171,62 @@ const ProductDetails = () => {
           ) : null}
           <div id="commit">
             <div style={{ marginBottom: "10px" }}>
-              <label style={{ fontSize: "20px" }}>
-                Оставить отзыв:{" "}
-                <input
-                  type="text"
-                  style={{
-                    width: "40%",
-                    height: "20px",
-                    backgroundColor: "rgb(222, 220, 220)",
-                    borderRadius: "5px",
-                    outline: 0,
-                  }}
-                />
-              </label>
+              <form onSubmit={e => handleAdd(e)}>
+                <label style={{ fontSize: "18px" }}>
+                  Оставить отзыв:
+                  <input
+                    onChange={e => setComent(e.target.value)}
+                    type="text"
+                    value={coment}
+                    style={{
+                      width: "40%",
+                      height: "20px",
+                      backgroundColor: "rgb(222, 220, 220)",
+                      borderRadius: "5px",
+                      outline: 0,
+                    }}
+                  />
+                </label>
+                <IconButton type="submit">
+                  <SendIcon />
+                </IconButton>
+              </form>
             </div>
-
-            <div style={{ display: "flex", marginBottom: "10px" }}>
-              <div
-                style={{
-                  minWidth: "30px",
-                  height: "30px",
-                  borderRadius: "50%",
-                  border: "none",
-                  backgroundColor: "rgb(182 180 231)",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  color: "black",
-                  marginRight: "3px",
-                }}>
-                Z
-              </div>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <span>zmu3842@gmail.ru</span>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  amet iusto harum illo, sit veniam. Earum neque sint doloribus
-                  ut dignissimos, labore fugit sapiente consequuntur tenetur.
-                  Pariatur, cumque repudiandae? Accusamus?
-                  <IconButton>
-                    <DeleteIcon />{" "}
-                  </IconButton>
-                </span>
-              </div>
-            </div>
+            {comentArr
+              ? comentArr.map(item => {
+                  if (item.key == id) {
+                    return (
+                      <div style={{ display: "flex", marginBottom: "10px" }}>
+                        <div
+                          style={{
+                            minWidth: "30px",
+                            height: "30px",
+                            borderRadius: "50%",
+                            border: "none",
+                            backgroundColor: "rgb(182 180 231)",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            color: "black",
+                            marginRight: "3px",
+                          }}>
+                          {item.user[0].toUpperCase("")}
+                        </div>
+                        <div
+                          style={{ display: "flex", flexDirection: "column" }}>
+                          <span>{item.user}</span>
+                          <span>
+                            {item.coment}
+                            <IconButton>
+                              <DeleteIcon />
+                            </IconButton>
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  }
+                })
+              : null}
           </div>
         </div>
       ) : null}

@@ -12,6 +12,7 @@ const ProductCard = ({ obj }) => {
   return (
     <Link to={`/details/${obj.id}`}>
       <div
+        key={obj.id}
         style={{
           width: 250,
           height: 280,
