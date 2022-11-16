@@ -12,6 +12,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import LiveSearch from "../LiveSearch/LiveSearch";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import RestoreIcon from "@mui/icons-material/Restore";
 import { favoritesContext } from "../../context/FavoritesContextProvider";
 import { Link, useLocation } from "react-router-dom";
 import { authContext } from "../../context/AuthContextProvider";
@@ -85,6 +86,17 @@ function NavBar() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}>
+      <Link to="/history" style={{ color: "black" }}>
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit">
+            <RestoreIcon />
+          </IconButton>
+          <p>История просмотра</p>
+        </MenuItem>
+      </Link>
       <Link to="/fav" style={{ color: "black" }}>
         <MenuItem>
           <IconButton
@@ -192,6 +204,14 @@ function NavBar() {
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Link to="/history">
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit">
+                <RestoreIcon />
+              </IconButton>
+            </Link>
             <Link to="/fav">
               <IconButton
                 size="large"

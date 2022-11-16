@@ -12,7 +12,7 @@ import { authContext } from "../../../context/AuthContextProvider";
 import { comentContext } from "../../../context/ComentContextProvider";
 import SendIcon from "@mui/icons-material/Send";
 import { browserContext } from "../../../context/BrowserContextProvider";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import RestoreIcon from "@mui/icons-material/Restore";
 
 const ProductDetails = () => {
   const { readOneProduct, productDetails, deleteProduct } =
@@ -153,13 +153,13 @@ const ProductDetails = () => {
 
               {history ? (
                 <IconButton
-                  style={{ color: "green" }}
+                  style={{ color: "yellow" }}
                   id="deleteFav"
                   onClick={() => {
                     setHistory(false);
                     deleteHistoryProduct(productDetails.id);
                   }}>
-                  <RemoveRedEyeIcon />
+                  <RestoreIcon />
                 </IconButton>
               ) : (
                 <IconButton
@@ -169,7 +169,7 @@ const ProductDetails = () => {
                     setHistory(false);
                     deleteHistoryProduct(productDetails.id);
                   }}>
-                  <RemoveRedEyeIcon />
+                  <RestoreIcon />
                 </IconButton>
               )}
             </div>
