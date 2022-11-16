@@ -4,14 +4,18 @@ import "./ProductCard.css";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { IconButton } from "@mui/material";
 import { favoritesContext } from "../../../context/FavoritesContextProvider";
+import { browserContext } from "../../../context/BrowserContextProvider";
 
 const ProductCard = ({ obj }) => {
   const location = useLocation();
 
   const { deleteFavoritesProduct } = useContext(favoritesContext);
+
+  const { addProductToHistory } = useContext(browserContext);
   return (
     <Link to={`/details/${obj.id}`}>
       <div
+        onClick={() => addProductToHistory(obj)}
         key={obj.id}
         style={{
           width: 250,

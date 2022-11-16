@@ -2,7 +2,6 @@ import { Grid, IconButton } from "@mui/material";
 import React, { useContext, useEffect } from "react";
 import { favoritesContext } from "../../context/FavoritesContextProvider";
 import ProductCard from "../Products/ProductCard/ProductCard";
-import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 
 const Favorites = () => {
   const { getFavorites, productsInFavorites } = useContext(favoritesContext);

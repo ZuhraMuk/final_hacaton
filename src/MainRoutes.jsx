@@ -8,6 +8,7 @@ import ProductsList from "./Components/Products/ProductsList/ProductsList";
 import Authorization from "./Components/Auth/Authorization";
 import { authContext } from "./context/AuthContextProvider";
 import NotFoundPage from "./Components/NotFoundPage/NotFoundPage";
+import History from "./Components/History/History";
 
 const MainRoutes = () => {
   const { user } = useContext(authContext);
@@ -29,6 +30,7 @@ const MainRoutes = () => {
         }
       />
       <Route path="/fav" element={<Favorites />} />
+      <Route path="/history" element={<History />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

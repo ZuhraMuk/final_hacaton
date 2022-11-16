@@ -16,7 +16,7 @@
       "title": "Хранитель луны",
       "genre": "анимация 3d",
       "year": 2014,
-      "rating": "12",
+      "rating": "15",
       "description": " На диковинной планете где смена дня и ночи осуществляется вручную юного         фавна Мьюна неожиданно избирают хранителем Луны. По неопытности он         теряет светило. Воспользовавшись нарушением баланса царю подземного мира         Некросу удается погасить и Солнце. Теперь Мьюн вместе с хранителем         Солнца — заносчивым Соонэ а также девушкой из воска Глим должен         отправиться в опасное и удивительное приключение чтобы спасти планету и         всех ее разнообразных обитателей.",
       "img1": "https://kinokit.net/uploads/posts/2015-10/1444862199_hranitel-luny.jpg",
       "video": "<iframe width=\"853\" height=\"480\" src=\"https://www.youtube.com/embed/z_PZFmhIWrk\" title=\"Гнездо Дракона / Мультфильм фэнтези HD\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
@@ -24,7 +24,7 @@
     },
     {
       "category": "cartoon",
-      "title": "т аиыввво ыооыоыоыоы ыооыовсампиртоо ипмавсампиросм итсмит прол рол рол ролд",
+      "title": "Нэчжа",
       "genre": "фантастика",
       "year": 2019,
       "rating": "13",
@@ -101,6 +101,12 @@
       "key": "3",
       "user": "zuhra@mail.ru",
       "id": 2
+    },
+    {
+      "coment": "hhhhoo",
+      "key": "1",
+      "user": "zuhra@mail.ru",
+      "id": 4
     }
   ]
 }
