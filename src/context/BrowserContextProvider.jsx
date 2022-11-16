@@ -60,9 +60,20 @@ const BrowserContextProvider = ({ children }) => {
     });
   }
 
+  function deleteHistoryProduct(id) {
+    let history = JSON.parse(localStorage.getItem("history"));
+    history.products = history.products.filter(elem => {
+      return elem.item.id !== id;
+    });
+
+    localStorage.setItem("history", JSON.stringify(history));
+    getHistory();
+  }
+
   const cloud = {
     addProductToHistory,
     getHistory,
+    deleteHistoryProduct,
     historyInArr: state.history,
   };
   return (

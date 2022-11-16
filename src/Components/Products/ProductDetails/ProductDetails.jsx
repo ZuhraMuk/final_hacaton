@@ -6,19 +6,25 @@ import { Button, IconButton } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { productContext } from "../../../context/ProductContextProvider";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { favoritesContext } from "../../../context/FavoritesContextProvider";
 import { authContext } from "../../../context/AuthContextProvider";
 import { comentContext } from "../../../context/ComentContextProvider";
 import SendIcon from "@mui/icons-material/Send";
+import { browserContext } from "../../../context/BrowserContextProvider";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
 const ProductDetails = () => {
   const { readOneProduct, productDetails, deleteProduct } =
     useContext(productContext);
 
+  const location = useLocation();
+
   const { user } = useContext(authContext);
 
   const { addProductToFavorites } = useContext(favoritesContext);
+
+  const { deleteHistoryProduct } = useContext(browserContext);
 
   const { addComent, readComent, comentArr, deleteComent } =
     useContext(comentContext);
@@ -57,6 +63,21 @@ const ProductDetails = () => {
         favorites.products.forEach(elem => {
           if (elem.item.id === productDetails.id) {
             setBasket(true);
+          }
+        });
+      }
+    }
+  }, []);
+
+  const [history, setHistory] = useState(false);
+
+  useEffect(() => {
+    let history = JSON.parse(localStorage.getItem("history"));
+    if (history !== null) {
+      if (productDetails !== null) {
+        history.products.forEach(elem => {
+          if (elem.item.id === productDetails.id) {
+            setHistory(true);
           }
         });
       }
@@ -130,9 +151,27 @@ const ProductDetails = () => {
                 </IconButton>
               )}
 
-              <IconButton style={{ color: "rgb(182 180 231)" }}>
-                <ChatIcon />
-              </IconButton>
+              {history ? (
+                <IconButton
+                  style={{ color: "green" }}
+                  id="deleteFav"
+                  onClick={() => {
+                    setHistory(false);
+                    deleteHistoryProduct(productDetails.id);
+                  }}>
+                  <RemoveRedEyeIcon />
+                </IconButton>
+              ) : (
+                <IconButton
+                  style={{ color: "inherit" }}
+                  id="deleteFav"
+                  onClick={() => {
+                    setHistory(false);
+                    deleteHistoryProduct(productDetails.id);
+                  }}>
+                  <RemoveRedEyeIcon />
+                </IconButton>
+              )}
             </div>
           </div>
           {user.email === "zuhra@mail.ru" ? (

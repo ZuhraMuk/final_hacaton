@@ -9,7 +9,7 @@ import { browserContext } from "../../../context/BrowserContextProvider";
 const ProductCard = ({ obj }) => {
   const location = useLocation();
 
-  const { deleteFavoritesProduct } = useContext(favoritesContext);
+  // const { deleteFavoritesProduct } = useContext(favoritesContext);
 
   const { addProductToHistory } = useContext(browserContext);
   return (
@@ -48,13 +48,13 @@ const ProductCard = ({ obj }) => {
           }}
           className="cardText">
           {obj.title}
-          {location.pathname === "/fav" ? (
+          {/* {location.pathname === "/fav" ? (
             <IconButton
               id="deleteFav"
               onClick={() => deleteFavoritesProduct(obj.id)}>
               <DeleteForeverIcon />
             </IconButton>
-          ) : null}
+          ) : null} */}
         </div>
       </div>
     </Link>

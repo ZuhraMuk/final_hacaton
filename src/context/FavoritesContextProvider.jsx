@@ -71,24 +71,24 @@ const FavoritesContextProvider = ({ children }) => {
     });
   }
 
-  function deleteFavoritesProduct(id) {
-    let favorites = JSON.parse(localStorage.getItem("favorites"));
-    favorites.products = favorites.products.filter(elem => {
-      return elem.item.id !== id;
-    });
+  // function deleteFavoritesProduct(id) {
+  //   let favorites = JSON.parse(localStorage.getItem("favorites"));
+  //   favorites.products = favorites.products.filter(elem => {
+  //     return elem.item.id !== id;
+  //   });
 
-    dispatch({
-      type: "CHANGE_FAVORITES_COUNT",
-      payload: favorites.products.length,
-    });
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    getFavorites();
-  }
+  //   dispatch({
+  //     type: "CHANGE_FAVORITES_COUNT",
+  //     payload: favorites.products.length,
+  //   });
+  //   localStorage.setItem("favorites", JSON.stringify(favorites));
+  //   getFavorites();
+  // }
 
   const cloud = {
     addProductToFavorites,
     getFavorites,
-    deleteFavoritesProduct,
+    // deleteFavoritesProduct,
     productsInFavorites: state.favorites,
     favoritesCount: state.favoritesCount,
   };
