@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./ProductDetails.css";
 import ReactPlayer from "react-player/lazy";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
-import { Button, IconButton } from "@mui/material";
+import { Button, IconButton, Typography } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { productContext } from "../../../context/ProductContextProvider";
@@ -13,10 +13,13 @@ import { comentContext } from "../../../context/ComentContextProvider";
 import SendIcon from "@mui/icons-material/Send";
 import { browserContext } from "../../../context/BrowserContextProvider";
 import RestoreIcon from "@mui/icons-material/Restore";
+import ProductCard from "../ProductCard/ProductCard";
 
 const ProductDetails = () => {
-  const { readOneProduct, productDetails, deleteProduct } =
+  const { readOneProduct, productDetails, deleteProduct, productsArr } =
     useContext(productContext);
+
+  console.log(productsArr);
 
   const location = useLocation();
 
@@ -173,6 +176,30 @@ const ProductDetails = () => {
                 </IconButton>
               )}
             </div>
+          </div>
+          <Typography variant="h6" style={{ margin: "5px auto" }}>
+            Рекомендации
+          </Typography>
+          <div
+            style={{
+              width: "80%",
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-around",
+              alignItems: "center",
+              margin: "5px auto",
+            }}>
+            {productsArr
+              ? productsArr.map(item => {
+                  if (
+                    item.category == productDetails.category &&
+                    item.year == productDetails.year &&
+                    item.id !== productDetails.id
+                  ) {
+                    return <ProductCard obj={item} />;
+                  }
+                })
+              : null}
           </div>
           {user.email === "zuhra@mail.ru" ? (
             <div
