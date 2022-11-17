@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { comentContext } from "./ComentContextProvider";
 
 export const productContext = createContext();
 
@@ -31,6 +32,7 @@ function reducer(prevState, action) {
 }
 
 const ProductContextProvider = ({ children }) => {
+  // const { deleteComent } = useContext(comentContext);
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const location = useLocation();
@@ -72,6 +74,7 @@ const ProductContextProvider = ({ children }) => {
   async function deleteProduct(id) {
     try {
       await axios.delete(`${API}/${id}`);
+      // deleteComent(id);
       readProduct();
       navigate("/");
     } catch (error) {

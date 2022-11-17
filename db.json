@@ -23,17 +23,6 @@
       "id": 3
     },
     {
-      "category": "cartoon",
-      "title": "Нэчжа",
-      "genre": "фантастика",
-      "year": 2014,
-      "rating": "13",
-      "description": "Небо и земля породили Жемчужину Хаоса, обладающую огромной силой, и образовавшийся демон сразу начал бушевать. Небесный владыка усмирил существо, разделил жемчужину на две - Жемчужину Духа и Жемчужину Демона - и заточил обе в цветок лотоса. А также наказал бессмертному Тайи проследить, чтобы Жемчужина Духа переродилась в третьего сына правителя Ли Цзына, которого следует назвать Нэчжа, а на Жемчужину Демона наложил судьбу - через три года она будет разрушена ударом молнии. Но другой бессмертный по имени Ян Вэй перед самым рождением наследника крадет Жемчужину Духа, и демон вселяется в младенца. Только появившись на свет, Нэчжа начинает кидаться в население файерболами, сея хаос, ужас и разрушения, поэтому Тайи надевает на него золотой усмиряющий ошейник. Правитель Ли Цзин просит оставить малыша в живых и клянётся, что не позволит ему покидать дворец, ведь всё равно через три года Нэчжу настигнет смертельное проклятие.",
-      "img1": "https://анимевост.рф/pic/2458_logo.jpg",
-      "video": "<iframe width=\"876\" height=\"365\" src=\"https://www.youtube.com/embed/_9Y13VNYUPI\" title=\"Мультфильм: Нэчжа (мультфильмы 2021)\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
-      "id": 4
-    },
-    {
       "category": "movie",
       "title": "Доспехи бога: В поисках сокровищ",
       "genre": "фэнтези, боевик, комедия, детектив, приключения",
@@ -54,17 +43,6 @@
       "img1": "https://s1.vcdn.biz/static/f/1914502321/image.jpg/pt/r300x423x4",
       "video": "<iframe width=\"853\" height=\"480\" src=\"https://www.youtube.com/embed/alrSs7vgU9M\" title=\"Рассказы Русалочки / Little Mermaid / семейное кино, приключения\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
       "id": 7
-    },
-    {
-      "category": "movie",
-      "title": "Восточный ветер",
-      "genre": "прпрпр",
-      "year": 2014,
-      "rating": "14",
-      "description": "Из-за плохой успеваемости родители отправляют 14-летнюю Мику в поместье к строгой бабушке. Поездка преподносит один сюрприз за другим: оказывается, бабушка, Мария Кальтенбах – знаменитая всадница в прошлом, которая теперь тренирует молодые таланты и разводит лошадей. Несмотря на то, что сама Мика ни разу в жизни не ездила верхом, да и не горит желанием научиться, один из обитателей конюшни - вороной жеребец по имени Оствинд неожиданно привлекает её внимание. Девушка легко находит с ним общий язык, даже не подозревая о том, что все вокруг считают коня диким и опасным. Так начинается их необыкновенная дружба.",
-      "img1": "https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/a94e6d98-5336-42b1-a4e6-6327b4c23c8f/600x900",
-      "video": "<iframe width=\"853\" height=\"480\" src=\"https://www.youtube.com/embed/j8G_bZeGOkY\" title=\"Восточный ветер /Ostwind/ Фильм HD\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
-      "id": 8
     },
     {
       "category": "cartoon",
@@ -89,15 +67,15 @@
       "id": 10
     },
     {
-      "category": "movie",
-      "title": "Шпион по соседству",
-      "genre": "Комедия",
-      "year": 2009,
-      "rating": "12",
-      "description": "«Недотепа!» — так называют Боба Хо соседи не подозревая что на самом деле он — секретный агент. Однажды соседка просит Боба посидеть с ее детишками. Никто не мог подумать что эта затея обернется настоящим кошмаром: один из маленьких подопечных “китайского няня” случайно вводит в компьютер секретный код чем навлекает на голову Боба массу неприятностей.",
-      "img1": "https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/098b16a4-9ad6-42de-8037-5a3e8e4a840f/300x450",
-      "video": "<iframe width=\"853\" height=\"480\" src=\"https://www.youtube.com/embed/H6kJf5QF4f4\" title=\"Шпион по соседству [2010] фильм в HD\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
-      "id": 11
+      "category": "cartoon",
+      "title": "On Delete",
+      "genre": "фэнтези",
+      "year": 2014,
+      "rating": "13",
+      "description": "qwert",
+      "img1": "https://upload.wikimedia.org/wikipedia/ru/f/f8/%D0%A3%D0%B4%D0%B0%D1%87%D0%B0_%28%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%2C_2022%29.jpg",
+      "video": "<iframe width=\"853\" height=\"480\" src=\"https://www.youtube.com/embed/65vTMspCxmA\" title=\"Удача Мультфильм (2022) Смотреть онлайн\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+      "id": 10
     }
   ],
   "coment": [
@@ -124,6 +102,24 @@
       "key": "4",
       "user": "zuhra@mail.ru",
       "id": 6
+    },
+    {
+      "coment": "ппппп",
+      "key": "8",
+      "user": "zuhra@mail.ru",
+      "id": 7
+    },
+    {
+      "coment": "ырвпрмвыви",
+      "key": "10",
+      "user": "zuhra@mail.ru",
+      "id": 8
+    },
+    {
+      "coment": "ррррр77777777776666666665555555544444443333333",
+      "key": "10",
+      "user": "zuhra@mail.ru",
+      "id": 9
     }
   ]
 }

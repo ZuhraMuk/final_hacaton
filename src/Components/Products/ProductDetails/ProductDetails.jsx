@@ -201,13 +201,13 @@ const ProductDetails = () => {
               margin: "5px auto",
             }}>
             {productsArr
-              ? productsArr.map(item => {
+              ? productsArr.map((item, index) => {
                   if (
                     item.category == productDetails.category &&
                     item.year == productDetails.year &&
                     item.id !== productDetails.id
                   ) {
-                    return <ProductCard obj={item} />;
+                    return <ProductCard obj={item} key={index} />;
                   }
                 })
               : null}
@@ -271,10 +271,12 @@ const ProductDetails = () => {
               </form>
             </div>
             {comentArr
-              ? comentArr.map(item => {
+              ? comentArr.map((item, index) => {
                   if (item.key == id) {
                     return (
-                      <div style={{ display: "flex", marginBottom: "10px" }}>
+                      <div
+                        key={index}
+                        style={{ display: "flex", marginBottom: "10px" }}>
                         <div
                           style={{
                             minWidth: "30px",
