@@ -16,10 +16,18 @@ import RestoreIcon from "@mui/icons-material/Restore";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductDetails = () => {
-  const { readOneProduct, productDetails, deleteProduct, productsArr } =
-    useContext(productContext);
+  const {
+    readOneProduct,
+    productDetails,
+    deleteProduct,
+    productsArr,
+    readProduct,
+  } = useContext(productContext);
 
-  console.log(productsArr);
+  // useEffect(() => {
+  //   console.log(productsArr, "productsArr");
+  // }, [productsArr]);
+  // console.log(productsArr);
 
   const location = useLocation();
 
@@ -55,6 +63,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     readComent();
+    readProduct();
   }, []);
 
   const [basket, setBasket] = useState(false);
@@ -177,12 +186,14 @@ const ProductDetails = () => {
               )}
             </div>
           </div>
+
           <Typography variant="h6" style={{ margin: "5px auto" }}>
             Рекомендации
           </Typography>
+
           <div
             style={{
-              width: "80%",
+              width: "100%",
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "space-around",

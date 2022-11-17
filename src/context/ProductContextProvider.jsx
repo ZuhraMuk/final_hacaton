@@ -17,7 +17,7 @@ function reducer(prevState, action) {
     case "GET_PRODUCT":
       return {
         ...prevState,
-        product: action.payload.data,
+        products: action.payload.data,
         pageTotalCount: Math.ceil(action.payload.headers["x-total-count"] / 3),
       };
     case "GET_ONE_PRODUCT":
@@ -95,7 +95,7 @@ const ProductContextProvider = ({ children }) => {
     readOneProduct,
     deleteProduct,
     editProduct,
-    productsArr: state.product,
+    productsArr: state.products,
     productDetails: state.productDetails,
     pageTotalCount: state.pageTotalCount,
   };
@@ -133,7 +133,7 @@ export default ProductContextProvider;
 //     case "GET_PRODUCT":
 //       return {
 //         ...prevState,
-//         product: action.payload,
+//         products: action.payload,
 //         // pageTotalCount: Math.ceil(action.payload.headers["x-total-count"] / 3),
 //       };
 //     case "GET_ONE_PRODUCT":
@@ -217,7 +217,7 @@ export default ProductContextProvider;
 //     readOneProduct,
 //     deleteProduct,
 //     editProduct,
-//     productsArr: state.product,
+//     productsArr: state.products,
 //     productDetails: state.productDetails,
 //     pageTotalCount: state.pageTotalCount,
 //   };
